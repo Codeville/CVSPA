@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"/>
+    <title>Authorization Sample with AngularJS and Web API 2</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/loading-bar.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="indexController">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle" ng-click="navbarExpanded = !navbarExpanded">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <a class="navbar-brand" href="#">Home</a>
+            </div>
+            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.userName}}</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="#/secured">Secured Page</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="#" ng-click="logOut()">Logout</a></li>
+                    <li data-ng-hide="authentication.isAuth"><a href="#/Login">Login</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="#/signup">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="page-header text-center"><h1>CodeVille CMS</h1></div>
+            <p>
+                This will be a Single Page Application where you can manage your content. 
+
+            </p>
+        </div>
+        <div class="container">
+            <div ng-view=""></div>
+            <hr />
+        </div>
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="text-muted">by Kubi, CodeVille Interactive Twitter: @kubilayozisik</p>
+                        <p>blog is coming soon</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/angular-local-storage.min.js"></script>
+    <script src="Scripts/loading-bar.js"></script>
+    
+
+    <script src="Scripts/app/app.js"></script>
+    <script src="Scripts/app/services/authService.js"></script>
+    <script src="Scripts/app/services/securedService.js"></script>
+    <script src="Scripts/app/services/authInterceptorService.js"></script>
+
+    <script src="Scripts/app/controllers/indexController.js"></script>
+    <script src="Scripts/app/controllers/homeController.js"></script>
+    <script src="Scripts/app/controllers/loginController.js"></script>
+    <script src="Scripts/app/controllers/signupController.js"></script>
+    <script src="Scripts/app/controllers/signupController.js"></script>
+</body>
+</html>
